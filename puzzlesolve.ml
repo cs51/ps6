@@ -3,27 +3,41 @@
                                 Search
 
                             Puzzle Solving
+ *)
 
-  This file contains the PUZZLESOLVER signature for modules that solve
-  particular puzzles, as well as a higher-order functor,
-  MakePuzzleSolver. A PUZZLESOLVER module solves the puzzle by searching
-  for a path from the initial state to the goal state.
+(*======================================================================
+Before working on this problem set, read the problem set 5 writeup in
+the textbook. It provides context and crucial information for
+completing the problems. In addition, make sure that you are familiar
+with the problem set procedures in the document "Problem set
+procedures for CS51". 
 
-  The MakePuzzleSolver functor takes a COLLECTION functor and a
-  PUZZLEDESCRIPTION and returns a PUZZLESOLVER. The collection specified
-  by the functor is used to store the states that have been reached so
-  far. Thus, the ordering in which states are delivered by the
-  collection (with the take function) determines the order in which the
-  states are searched. A stack regime gives depth-first search, a queue
-  regime breadth-first search.
+You are allowed (and encouraged) to work with a partner on this
+problem set. You are also allowed to work alone, if you prefer. See
+https://cs51.io/guides/procedures/pset-instructions/#working-with-a-partner
+for further information on working with partners on problem sets.
+======================================================================*)
 
-  At the bottom of the file are definitions for depth-first search and
-  breadth-first search puzzle solvers, partially applied versions of the
-  MakePuzzleSolver functor that use certain collections to engender
-  different search methods.
+(* This file contains the `PUZZLESOLVER` signature for modules that
+solve particular puzzles, as well as a higher-order functor,
+`MakePuzzleSolver`. A `PUZZLESOLVER` module solves the puzzle by searching
+for a path from the initial state to the goal state.
 
-  This file makes use of the Set and Collections module, as well as
-  the PuzzleDescription module (which it opens).  
+The `MakePuzzleSolver` functor takes a `COLLECTION` functor and a
+`PUZZLEDESCRIPTION` and returns a `PUZZLESOLVER`. The collection
+specified by the functor is used to store the states that have been
+reached so far. Thus, the ordering in which states are delivered by
+the collection (with the take function) determines the order in which
+the states are searched. A stack regime gives depth-first search, a
+queue regime breadth-first search.
+
+At the bottom of the file are definitions for depth-first search and
+breadth-first search puzzle solvers, partially applied versions of the
+`MakePuzzleSolver` functor that use certain collections to engender
+different search methods.
+
+This file makes use of the `Set` and `Collections` module, as well as the
+`PuzzleDescription` module (which it opens). 
  *)
 
 open Puzzledescription
@@ -62,14 +76,14 @@ module type PUZZLESOLVER =
      (functor (sig type t end -> COLLECTION)) -> PUZZLEDESCRIPTION -> PUZZLESOLVER
 
    A functor that given a functor from an element type to a
-   COLLECTION, as well as a PUZZLEDESCRIPTION, returns a full
-   PUZZLESOLVER module.
+   `COLLECTION`, as well as a `PUZZLEDESCRIPTION`, returns a full
+   `PUZZLESOLVER` module.
 
-   The functor MakeCollection is used for generating the collection
+   The functor `MakeCollection` is used for generating the collection
    for storing pending states that have yet to be searched. Using
-   different collection regimes -- stacks (MakeStackList), queues
-   (MakeQueueList, MakeQueueStack), etc. -- leads to different search
-   regimes -- depth-first, breadth-first, etc.
+   different collection regimes -- stacks (`MakeStackList`), queues
+   (`MakeQueueList`, `MakeQueueStack`), etc. -- leads to different
+   search regimes -- depth-first, breadth-first, etc.
  *)
 module MakePuzzleSolver
          (MakeCollection

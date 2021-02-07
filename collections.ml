@@ -3,14 +3,27 @@
                                 Search
  
                              Collections
-
-  The COLLECTION module signature is a generic data structure
-  generalizing stacks, queues, and priority queues, allowing adding
-  and taking elements. This file provides the signature and several
-  functors implementing specific collections (stacks, queues,
-  etc.).
  *)
 
+(*======================================================================
+Before working on this problem set, read the problem set 5 writeup in
+the textbook. It provides context and crucial information for
+completing the problems. In addition, make sure that you are familiar
+with the problem set procedures in the document "Problem set
+procedures for CS51". 
+
+You are allowed (and encouraged) to work with a partner on this
+problem set. You are also allowed to work alone, if you prefer. See
+https://cs51.io/guides/procedures/pset-instructions/#working-with-a-partner
+for further information on working with partners on problem sets.
+======================================================================*)
+
+(* The `COLLECTION` module signature is a generic data structure
+   generalizing stacks, queues, and priority queues, allowing adding
+   and taking elements. This file provides the signature and several
+   functors implementing specific collections (stacks, queues,
+   etc.).
+ *)
 module type COLLECTION = 
 sig
 
@@ -146,11 +159,12 @@ let minutes_spent_on_pset () : int =
   failwith "time estimate not provided" ;;
 
 (*......................................................................
-It's worth reflecting on the work you did on this problem set, where
-you ran into problems and how you ended up resolving them. What might
-you have done in retrospect that would have allowed you to generate as
-good a submission in less time? Please provide us your thoughts in the
-string below.
+It's worth reflecting on the work you did on this problem set. Where
+did you run into problems and how did you end up resolving them? What
+might you have done in retrospect that would have allowed you to
+generate as good a submission in less time? Please provide us your
+thoughts on these questions and any other reflections in the string
+below.
 ......................................................................*)
 
 let reflection () : string =
