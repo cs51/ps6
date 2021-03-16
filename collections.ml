@@ -138,7 +138,7 @@ module MakeQueueList (Element : sig type t end)
 module MakeQueueStack (Element : sig type t end) 
        : (COLLECTION with type elt = Element.t) =
   struct
-    failwith "MakeQueueStack not implemented"
+    (* ...your implementation goes here... *)
   end
 
 (*======================================================================

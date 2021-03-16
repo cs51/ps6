@@ -20,16 +20,16 @@ for further information on working with partners on problem sets.
 
 (* This file contains the `PUZZLESOLVER` signature for modules that
 solve particular puzzles, as well as a higher-order functor,
-`MakePuzzleSolver`. A `PUZZLESOLVER` module solves the puzzle by searching
-for a path from the initial state to the goal state.
+`MakePuzzleSolver`. A `PUZZLESOLVER` module solves the puzzle by
+searching for a path from the initial state to the goal state.
 
 The `MakePuzzleSolver` functor takes a `COLLECTION` functor and a
 `PUZZLEDESCRIPTION` and returns a `PUZZLESOLVER`. The collection
 specified by the functor is used to store the states that have been
 reached so far. Thus, the ordering in which states are delivered by
-the collection (with the take function) determines the order in which
-the states are searched. A stack regime gives depth-first search, a
-queue regime breadth-first search.
+the collection (using the `take` function) determines the order in
+which the states are searched. A stack regime gives depth-first
+search, a queue regime breadth-first search.
 
 At the bottom of the file are definitions for depth-first search and
 breadth-first search puzzle solvers, partially applied versions of the
@@ -62,8 +62,9 @@ module type PUZZLESOLVER =
        of all of the states visited in the solution process in any order 
        is provided as the returned state list. *)
     val solve : unit -> move list * state list
-    (* draw states moves -- Graphically renders a solution given by the
-       `moves` that was discovered through visiting the `states` *)
+    (* draw states moves -- Graphically renders a solution given by
+       the sequence of `moves` that was discovered through visiting
+       the `states` *)
     val draw : state list -> move list -> unit
     (* print_state state -- Prints a representation of `state` on the
        standard output *)
@@ -89,9 +90,9 @@ module MakePuzzleSolver
          (MakeCollection
             : functor (Element : sig type t end) ->
                       (Collections.COLLECTION with type elt = Element.t))
-         (G : PUZZLEDESCRIPTION)
-       : (PUZZLESOLVER with type state = G.state
-                        and type move = G.move) =
+         (Puzzle : PUZZLEDESCRIPTION)
+       : (PUZZLESOLVER with type state = Puzzle.state
+                        and type move = Puzzle.move) =
   struct
     failwith "MakePuzzleSolver not implemented"
   end ;;

@@ -1,6 +1,6 @@
 (*  
-                                CS 51
-                        Problem Set 6: Search
+                         CS 51 Problem Set 6
+                                Search
  
                              Maze Puzzles
  *)
@@ -42,10 +42,10 @@ end
    generates a PUZZLEDESCRIPTION module specifying a maze puzzle *)
 module MakeMazePuzzleDescription (M : MAZEINFO)
        : (PUZZLEDESCRIPTION with type state = position
-                           and type move = direction) = 
+                             and type move = direction) = 
   struct
     
-    (* Type state is where the player is currently located in the maze *)
+    (* Type `state` is where the player is currently located in the maze *)
     type state = position
                    
     (* The player can move various ways in the maze *)

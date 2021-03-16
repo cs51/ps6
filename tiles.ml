@@ -1,6 +1,6 @@
 (*  
-                                CS 51
-                        Problem Set 6: Search
+                         CS 51 Problem Set 6
+                                Search
  
             The Fifteen Puzzle (and similar tile puzzles)
  *)
@@ -215,7 +215,7 @@ module MakeTilePuzzleDescription (T : TILEINFO)
                         |> List.map (neighbors_helper s ep) in
       final_board
         
-    (* A function for comparing two states: will be useful in puzzleplay.ml *)
+    (* A function for comparing two states: will be useful in puzzlesolve.ml *)
     let compare_states (s1 : state) (s2 : state) : int = 
         let b1 = flatten s1 in 
         let b2 = flatten s2 in

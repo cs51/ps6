@@ -1,7 +1,7 @@
 (*
-                                CS 51
-                        Problem Set 6: Search
-
+                         CS 51 Problem Set 6
+                                Search
+ 
                                Drawing
 
   Basic functionality for drawing using OCaml's graphics module.
