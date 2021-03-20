@@ -6,7 +6,7 @@
  *)
 
 (*======================================================================
-Before working on this problem set, read the problem set 5 writeup in
+Before working on this problem set, read the problem set 6 writeup in
 the textbook. It provides context and crucial information for
 completing the problems. In addition, make sure that you are familiar
 with the problem set procedures in the document "Problem set
